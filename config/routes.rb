@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :verfications
+  match '/verify/category/:slug' => 'verfications#categories', via: [:get]
+  match '/verify/product/:slug' => 'verfications#products', via: [:get]
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
